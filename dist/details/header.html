@@ -22,25 +22,30 @@
                 </div>
 
                 <nav class="mainnav">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="">Про К+С Україна</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="">Сільське господарство</a>
+                                <ul>
+                                    <li class="current-menu-item"><a href="">Добрива</a></li>
+                                    <li><a href="">Кампанія</a></li>
+                                    <li><a href="">Академія KALI</a></li>
+                                    <li><a href="">Консультації</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children current-menu-item">
+                                <a href="">Промисловість</a>
+                                <ul>
+                                    <li><a href="">Харчування тварин</a></li>
+                                    <li><a href="">Харчова сіль</a></li>
 
-                    <div role="button" class="mainnav-link" data-nav="" data-index="0">
-                        <span>Про К+С Україна</span>
+                                </ul>
+                            </li>
+                            <li><a href="">Контакти</a></li>
+                        </ul>
                     </div>
-                    <div role="button" class="mainnav-link" data-nav="" data-index="1">
-                        <span>Сільське господарство</span>
-                        <i class="icon icon-chevron-right visible-xsmall-medium" aria-hidden="true"></i>
-                    </div>
 
-
-                    <div role="button" class="mainnav-link" data-nav="" data-index="2">
-                        <span>Промисловість</span>
-                        <i class="icon icon-chevron-right visible-xsmall-medium" aria-hidden="true"></i>
-                    </div>
-
-                    <a href="" role="menuitem" class="mainnav-link"
-                       data-nav="" data-index="3">
-                        <span>Контакти</span>
-                    </a>
 
                     <div class="mainnav-secondary visible-xsmall-medium">
                         <a href="" class="subnav__list-item">Про К+С Україна</a>
@@ -64,42 +69,89 @@
                 </div>
             </div>
         </div>
+        <div class="hidden-menu">
+            <div class="hidden-menu__wrap">
+                <div class="menu">
+                    <ul>
+                        <li><a href="">Про К+С Україна</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="">Сільське господарство</a>
+                            <ul>
+                                <li class="current-menu-item"><a href="">Добрива</a></li>
+                                <li><a href="">Кампанія</a></li>
+                                <li><a href="">Академія KALI</a></li>
+                                <li><a href="">Консультації</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children current-menu-item">
+                            <a href="">Промисловість</a>
+                            <ul>
+                                <li><a href="">Харчування тварин</a></li>
+                                <li><a href="">Харчова сіль</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="add-menu">
+                    <ul>
+                        <li><a href="">Контакт</a></li>
+                        <li><a href="">Правила</a></li>
+                        <li><a href="">Конфіденціальність</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
     </header>
+    <div class="menu-items-sides" style="display: none;">
+        <div class="menu-part" data-menu="0">
+            <div class="menu-part__left">
+                <div class="img">
+                    <img src="./img/menu-img.jpg" alt="">
+                </div>
+                <div class="txt">
+                    <p>K+S supports farmers in securing the world's food supply, provides raw materials and solutions to
+                        keep industries running, brings taste to the plate and ensures safety in winter. Learn more
+                        about us.</p>
+                </div>
+            </div>
+            <div class="menu-part__menu">
+
+            </div>
+        </div>
+        <div class="menu-part" data-menu="1">
+            <div class="menu-part__left">
+                <div class="img">
+                    <img src="./img/prod1.png" alt="">
+                </div>
+                <div class="txt">
+                    <p>K+S supports farmers in securing the world's food supply, provides raw materials and solutions to
+                        keep industries running.</p>
+                </div>
+            </div>
+            <div class="menu-part__menu">
+
+            </div>
+        </div>
+    </div>
 
     <nav class="subnav " aria-hidden="false" data-subnav="" style="display: block">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-3 subnav__level subnav__level--1st" data-navlevel="1">
-                    <div class="visible-xsmall-medium">
-                        <div class="subnav__button-wrapper" data-back="">
-                            <button type="button" class="subnav__back button button--icon-left">
-                                <i class="icon icon-chevron-left" aria-hidden="true"></i>
-                                <!-- localize text -->
-                                <span class="button__label">Назад</span>
-                            </button>
-                        </div>
-                    </div>
-
                     <div class="visible-medium-up">
-                        <img class="subnav__image" data-src="image">
+                        <img class="subnav__image" src="">
                         <div class="subnav__text" data-bind="text"></div>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4 subnav__level subnav__level--2nd" data-navlevel="2">
-                    <div class="subnav__list" data-navlist="items"></div>
+                    <div class="subnav__list" data-navlist="items" style="height: 0"></div>
                 </div>
 
-                <div class="col-xs-12 col-md-4 subnav__level subnav__level--3rd" aria-hidden="true" data-navlevel="3">
-                    <div class="subnav__button-wrapper visible-xsmall-medium" data-back="">
-                        <button type="button" class="subnav__back button button--icon-left">
-                            <i class="icon icon-chevron-left" aria-hidden="true"></i>
-                            <span class="button__label">Назад</span>
-                        </button>
-                    </div>
-                    <div class="subnav__list" data-navlist="items"></div>
-                </div>
+
             </div>
         </div>
     </nav>

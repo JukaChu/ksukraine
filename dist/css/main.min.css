@@ -4918,6 +4918,9 @@ figure {
   margin: 0;
   list-style: none;
 }
+.products-list__pagin ul li a {
+  cursor: pointer !important;
+}
 .products-list__pagin ul li a, .products-list__pagin ul li span {
   text-decoration: none;
   display: -webkit-box;
@@ -4947,6 +4950,11 @@ figure {
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
 }
+.products-list__pagin ul li a.prev:hover, .products-list__pagin ul li a.next:hover, .products-list__pagin ul li span.prev:hover, .products-list__pagin ul li span.next:hover {
+  cursor: default;
+  color: #fff;
+  background-color: #005ea1;
+}
 .products-list__pagin ul li a.prev::before, .products-list__pagin ul li a.next::before, .products-list__pagin ul li span.prev::before, .products-list__pagin ul li span.next::before {
   font-family: "ks-icons" !important;
   speak: never;
@@ -4961,6 +4969,11 @@ figure {
   cursor: default;
   color: #fff;
   background-color: #005ea1;
+}
+.products-list__pagin ul li a:hover, .products-list__pagin ul li span:hover {
+  cursor: pointer;
+  background: rgba(0, 94, 161, 0.2);
+  color: #333;
 }
 .products-list__pagin ul li a.prev:before, .products-list__pagin ul li span.prev:before {
   content: "\e90b";
@@ -5706,6 +5719,90 @@ figure {
   font-size: 6rem;
 }
 
+.subnav__list ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.subnav__list ul li {
+  width: 100%;
+  display: inline-block;
+}
+.subnav__list ul li a {
+  height: 50%;
+  padding: 1rem 1rem 1rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: inherit;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out;
+}
+@media screen and (min-width: 992px) {
+  .subnav__list ul li a {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+.subnav__list ul li a:hover {
+  background-color: #e6e6e6;
+  text-decoration: none;
+}
+.subnav__list ul li.current-menu-item a {
+  background-color: #f5f5f5;
+  color: #003a78;
+  font-weight: 500;
+}
+.subnav__list ul li.main-li a {
+  font-weight: 500;
+  color: #333;
+}
+
+.subnav__list {
+  -webkit-transition: height 0.3s ease-out, opacity 0.2s ease-out;
+  transition: height 0.3s ease-out, opacity 0.2s ease-out;
+  margin: 0 -1rem;
+  overflow-y: hidden;
+}
+
+.subnav__image {
+  width: 100%;
+}
+
+.subnav__text p {
+  font-size: 0.8333rem;
+}
+
+.hidden-menu {
+  display: none;
+}
+
 .header-wrapper {
   z-index: 1500;
   position: fixed;
@@ -5901,6 +5998,76 @@ figure {
 
 .mainnav-link {
   color: #666;
+}
+
+.menu > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media screen and (min-width: 992px) {
+  .menu > ul > li > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 4.25rem;
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    color: #666;
+  }
+  .menu > ul > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: transparent;
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .menu > ul > li > a {
+    padding: 0 1rem;
+  }
+}
+.menu > ul > li > a:hover {
+  background-color: #e6e6e6;
+  text-decoration: none;
+}
+.menu > ul > li > a.is-selected {
+  background: #f5f5f5;
+}
+.menu > ul > li.current-menu-item > a, .menu > ul > li.current-menu-ancestor > a, .menu > ul > li.current-menu-parent > a {
+  color: #003a78;
+  background-color: rgba(0, 58, 120, 0.05);
+  font-weight: 500;
+}
+.menu > ul > li.current-menu-item > a::after, .menu > ul > li.current-menu-ancestor > a::after, .menu > ul > li.current-menu-parent > a::after {
+  background-color: #003a78;
+}
+.menu > ul ul {
+  display: none;
 }
 
 @media only screen and (max-width: 991px) {
@@ -6226,10 +6393,10 @@ figure {
 }
 
 .subnav {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  -webkit-transition: height 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: height 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, height 0.3s ease-out;
+  transition: transform 0.3s ease-out, height 0.3s ease-out, -webkit-transform 0.3s ease-out;
   background-color: #fff;
   border-top: 1px solid #f5f5f5;
 }
@@ -7491,6 +7658,9 @@ figure {
   .page__section.related-prod {
     padding: 6rem 0;
   }
+  .subnav {
+    max-height: calc(100vh - var(--headeerheight));
+  }
 }
 @media screen and (min-width: 1280px) {
   .overview-teaser__wrapper {
@@ -7841,6 +8011,142 @@ figure {
   }
 }
 @media only screen and (max-width: 991px) {
+  .hidden-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    height: calc(100vh - var(--headerheight));
+    border-top: 1px solid #f5f5f5;
+    -webkit-transform: translate(102%, 0);
+            transform: translate(102%, 0);
+  }
+  .header.active .hidden-menu {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  .hidden-menu__wrap {
+    width: 100%;
+    overflow-y: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding-bottom: 60px;
+  }
+  .hidden-menu__wrap .menu, .hidden-menu__wrap .add-menu {
+    width: 100%;
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .hidden-menu__wrap .menu ul, .hidden-menu__wrap .add-menu ul {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+  }
+  .hidden-menu__wrap .menu ul li, .hidden-menu__wrap .add-menu ul li {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .hidden-menu__wrap .menu ul li > ul, .hidden-menu__wrap .add-menu ul li > ul {
+    display: none;
+  }
+  .hidden-menu__wrap .menu ul li.current-menu-item > a, .hidden-menu__wrap .add-menu ul li.current-menu-item > a {
+    color: #003a78;
+    background: #f5f5f5;
+    font-weight: 500;
+  }
+  .hidden-menu__wrap .menu ul li a, .hidden-menu__wrap .add-menu ul li a {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    color: inherit;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+  }
+  .hidden-menu__wrap .menu ul li ul li a, .hidden-menu__wrap .add-menu ul li ul li a {
+    padding: 1rem 1rem 1rem 1.8rem;
+  }
+  .hidden-menu__wrap .menu ul li.menu-item-has-children > a i, .hidden-menu__wrap .add-menu ul li.menu-item-has-children > a i {
+    font-size: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hidden-menu__wrap .menu ul li.menu-item-has-children > a i::before, .hidden-menu__wrap .add-menu ul li.menu-item-has-children > a i::before {
+    font-size: 1rem;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  .hidden-menu__wrap .menu ul li.menu-item-has-children.open > a i::before, .hidden-menu__wrap .add-menu ul li.menu-item-has-children.open > a i::before {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .hidden-menu__wrap .menu ul li.menu-item-has-children.open > ul, .hidden-menu__wrap .add-menu ul li.menu-item-has-children.open > ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .hidden-menu__wrap .add-menu {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
   .technical-passports__download .fig {
     width: 50px;
     height: 70px;

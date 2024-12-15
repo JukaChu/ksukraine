@@ -416,6 +416,9 @@
       padding: 6rem 0;
     }
   }
+  .subnav {
+    max-height: calc(100vh - var(--headeerheight));
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -698,6 +701,127 @@
 }
 
 @media only screen and (max-width: 991px) {
+  .hidden-menu {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    transition: all .3s ease-out;
+    height: calc(100vh - var(--headerheight));
+    border-top: 1px solid #f5f5f5;
+    transform: translate(102%, 0);
+  }
+  .header {
+    &.active {
+      .hidden-menu {
+        transform: translate(0, 0);
+      }
+    }
+  }
+  .hidden-menu__wrap {
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 60px;
+
+    .menu, .add-menu {
+      width: 100%;
+      border-bottom: 1px solid #f5f5f5;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+
+        li {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          > ul {
+            display: none;
+          }
+
+          &.current-menu-item {
+            > a {
+              color: #003a78;
+              background: #f5f5f5;
+              font-weight: 500;
+            }
+          }
+
+
+          a {
+            width: 100%;
+            padding: 1rem 1rem 1rem 1.5rem;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            color: inherit;
+            line-height: 1.5;
+            cursor: pointer;
+            transition: background-color .25s ease-out;
+          }
+
+          ul {
+            li {
+              a {
+                padding: 1rem 1rem 1rem 1.8rem;
+              }
+            }
+          }
+
+          &.menu-item-has-children {
+            > a {
+              i {
+                font-size: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &::before {
+                  font-size: 1rem;
+                  transition: all 0.3s ease-out;
+                }
+              }
+            }
+
+            &.open {
+              > a {
+                i {
+                  &::before {
+                    transform: rotate(90deg);
+                  }
+                }
+              }
+
+              > ul {
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .add-menu {
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+  }
   .technical-passports__download .fig {
     width: 50px;
     height: 70px;

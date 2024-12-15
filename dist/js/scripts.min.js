@@ -158,17 +158,54 @@ function show(el, cs) {
     }
 }
 
+function addSubs(el, t) {
+    let imgM = el.querySelector('.menu-part__left img');
+    let txtM = el.querySelector('.menu-part__left .txt');
+    let menuM = el.querySelector('.menu-part__menu ul').cloneNode(true);
+    let elListM = [...el.querySelectorAll('.menu-part__menu ul li')];
+    let hM = elListM.length * 50;
+
+
+    let subnavFirst = document.querySelector('.subnav__level--1st');
+    let subImg = subnavFirst.querySelector('.subnav__image');
+    let subText = subnavFirst.querySelector('.subnav__text');
+
+
+    subImg.src = imgM.src;
+    subText.innerHTML = txtM.innerHTML;
+
+    let subnavSecond = document.querySelector('.subnav__level--2nd');
+    let subItems = subnavSecond.querySelector('.subnav__list');
+    subItems.innerHTML = '';
+    subItems.appendChild(menuM);
+    subItems.style.height = `${hM}px`;
+}
+
 let activeNav = '';
 
 let hh = $('.header-wrapper').outerHeight();
 document.body.style.setProperty('--headerheight', `${hh}px`);
 
+let menuSaveSide = '';
 
-[...document.querySelectorAll("[data-nav]")].forEach(function (t, e) {
+[...document.querySelectorAll(".mainnav .menu-item-has-children > a")].forEach(function (t, e) {
+
+    let parentBlock = t.closest('.menu-item-has-children').querySelector('ul');
+    let cloneBlock = parentBlock.cloneNode(true);
+    let menuCopy = document.querySelector(`.menu-part[data-menu='${Number(e)}']`);
+
+    let menuList = menuCopy.querySelector('.menu-part__menu');
+    menuList.appendChild(cloneBlock.cloneNode(true));
+    let newLi = document.createElement('li');
+    newLi.appendChild(t.cloneNode(true));
+    newLi.classList.add('main-li');
+    menuList.querySelector('ul').prepend(newLi);
+
     t.setAttribute("data-index", e.toString());
     t.addEventListener("click", function (event) {
         // Викликаємо функцію з масиву за її ключем
-
+        event.preventDefault();
+        event.stopPropagation();
         if (t.classList.contains('is-selected')) {
             hideNav(t);
             hide(backdrop, 0);
@@ -187,11 +224,54 @@ document.body.style.setProperty('--headerheight', `${hh}px`);
                 show(backdrop, 0);
                 activeNav = t;
             }
+            addSubs(menuCopy, t);
+
         }
+        console.log(activeNav);
 
     });
 });
+document.querySelector('.backdrop').addEventListener('click', () => {
+    hideNav();
+    hide(document.querySelector('.backdrop'), 0);
+    document.querySelector('.menu .is-selected').classList.remove('is-selected')
+})
 
+
+// burger control
+
+let menuMob = [...document.querySelectorAll('.hidden-menu .menu-item-has-children > a')];
+
+menuMob.forEach((it, k) => {
+    let createI = document.createElement('i');
+    createI.classList.add('icon');
+    createI.classList.add('icon-chevron-right');
+    createI.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        it.closest('li').classList.toggle('open');
+    })
+    it.appendChild(createI);
+})
+
+let burg = document.querySelector('.mainnav-toggle');
+
+burg.addEventListener('click', () => {
+    let ic = burg.querySelector('i');
+    if (ic.classList.contains('icon-burger')) {
+        ic.classList.remove('icon-burger');
+        ic.classList.add('icon-close');
+        document.querySelector('.header').classList.add('active');
+
+    } else {
+        ic.classList.remove('icon-close');
+        ic.classList.add('icon-burger');
+        document.querySelector('.header').classList.remove('active');
+
+    }
+})
+
+// burger control
 let buttonContacts = [...document.querySelectorAll('.contact__expand-button')];
 
 function controlContact() {
@@ -228,6 +308,7 @@ function controlContact() {
 }
 
 controlContact();
+
 
 let headFilter = [...document.querySelectorAll('.products-sidebar__head')];
 let filterBlock = document.querySelector('.products-sidebar__body');
