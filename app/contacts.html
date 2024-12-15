@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <link
+            href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+            rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/main.min.css">
 
 
@@ -87,190 +92,212 @@
             <div id="overview" class="section-comp-wrapper">
                 <div class="section-entry ">
                     <h2 class="section-entry__headline">Розташування</h2>
-
                 </div>
 
-
-                <div class="content-teaser content-teaser--nutri" data-colcount="3">
-                    <div class="content-teaser__items">
-                        <a href="" class="text-image-tile is-inverted  has-only-icon-link">
-                            <div class="text-image-tile__image-wrapper">
-                                <picture class="text-image-tile__image">
-                                    <img data-src="./img/nut1.png"
-                                         src="./img/nut1.png"
-                                         class="blur-up lazyload" alt="">
-                                </picture>
-                            </div>
-                            <div class="text-image-tile__content-wrapper">
-                                <div class="text-image-tile__content">
-                                    <h2 class="text-image-tile__headline">НУТРІКС® КаліСел</h2>
-                                    <div class="text-image-tile__body">
-                                        Хлорид калію високої чистоти. NUTRIKS KaliSel використовується як високоякісна,
-                                        економічно ефективна альтернатива солі та як джерело калію для їжі. 
-                                    </div>
-
-                                </div>
-                                <div class="text-image-tile__footer">
-                                    <div class="button button--link">
-                                        <i class="icon icon-arrow-right" aria-hidden="true"></i>
-                                        <span class="button__label"></span>
+                <div class="map-container">
+                    <div id="map" class="mapped-block">
+                    </div>
+                    <div class="location-item is-active">
+                        <div class="location-item__inner">
+                            <div class="location-item__pin"></div>
+                            <div class="location-item__content">
+                                <div class="location-item__head">
+                                    <span>K + S Polska</span>
+                                    <div class="location-numbers">
+                                        <div class="location-number">
+                                            <i class="icon icon-factory"></i>
+                                            <span>Розподіл</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="location-item__body">
+                                    <div class="location-data">
+                                        <small class="location-data__label">Адреса</small>
+                                        <div class="location-data__data">
+                                            <div class="location-data__item">вулиця 28 червня 1956 р. № 404</div>
+                                            <div class="location-data__item">61-441 Познань</div>
+                                            <div class="location-data__item">Польща</div>
+                                        </div>
+                                        <div class="location-data__actions">
+                                            <a href="" class="button button--primary-light">
+                                                <i class="icon icon-compass-arrow"></i>
+                                                <span class="button__label">Автомобільний маршрут</span>
+                                            </a>
+                                        </div>
 
-
-                            </div>
-                        </a>
-                        <a href="" class="text-image-tile is-inverted  has-only-icon-link">
-                            <div class="text-image-tile__image-wrapper">
-                                <picture class="text-image-tile__image">
-                                    <img data-src="./img/nut2.png"
-                                         src="./img/nut2.png"
-                                         class="blur-up lazyload" alt="">
-                                </picture>
-                            </div>
-                            <div class="text-image-tile__content-wrapper">
-                                <div class="text-image-tile__content">
-                                    <h2 class="text-image-tile__headline">НУТРІКС® Прайм</h2>
-                                    <div class="text-image-tile__body">
-                                        Високоякісна харчова кам'яна сіль. Сіль з первозданного моря популярна завдяки
-                                        чудовому смаку та чисто білій кристалічній структурі. NUTRIKS Prime особливо
-                                        підходить для сухого застосування та обробляється у твердій формі.
                                     </div>
-
-                                </div>
-                                <div class="text-image-tile__footer">
-                                    <div class="button button--link">
-                                        <i class="icon icon-arrow-right" aria-hidden="true"></i>
-                                        <span class="button__label"></span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </a>
-                        <a href="" class="text-image-tile is-inverted  has-only-icon-link">
-                            <div class="text-image-tile__image-wrapper">
-                                <picture class="text-image-tile__image">
-                                    <img data-src="./img/nut3.png"
-                                         src="./img/nut3.png"
-                                         class="blur-up lazyload" alt="">
-                                </picture>
-                            </div>
-                            <div class="text-image-tile__content-wrapper">
-                                <div class="text-image-tile__content">
-                                    <h2 class="text-image-tile__headline">НУТРІКС® Чистий</h2>
-                                    <div class="text-image-tile__body">
-                                        Харчова вакуумна сіль високої чистоти. NUTRIKS Pure особливо підходить для
-                                        обробки харчових продуктів, якщо додавати його в розчиненому вигляді або
-                                        змішувати з рідиною. 
-                                    </div>
-
-                                </div>
-                                <div class="text-image-tile__footer">
-                                    <div class="button button--link">
-                                        <i class="icon icon-arrow-right" aria-hidden="true"></i>
-                                        <span class="button__label"></span>
+                                    <div class="location-data">
+                                        <small class="location-data__label">Контакти</small>
+                                        <div class="location-data__data">
+                                            <div class="location-data__item">
+                                                <i class="icon icon-phone"></i>
+                                                <a href="">+48 61 628 0951</a>
+                                            </div>
+                                            <div class="location-data__item">
+                                                <i class="icon icon-phone-landline"></i>
+                                                <span>+48 61 628 0954</span>
+                                            </div>
+                                            <div class="location-data__item">
+                                                <i class="icon icon-www"></i>
+                                                <a href="">https://www.ks-polska.com</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-
                             </div>
-                        </a>
-                        <a href="" class="text-image-tile is-inverted  has-only-icon-link">
-                            <div class="text-image-tile__image-wrapper">
-                                <picture class="text-image-tile__image">
-                                    <img data-src="./img/nut4.png"
-                                         src="./img/nut4.png"
-                                         class="blur-up lazyload" alt="">
-                                </picture>
-                            </div>
-                            <div class="text-image-tile__content-wrapper">
-                                <div class="text-image-tile__content">
-                                    <h2 class="text-image-tile__headline">НУТРІКС® Епсом</h2>
-                                    <div class="text-image-tile__body">
-                                        Сульфат магнію високої чистоти. NUTRIKS Epsom в основному використовується як
-                                        джерело магнію. Може служити як оброблювач (ферментація) і як добавка до
-                                        широкого асортименту харчових продуктів. 
-                                    </div>
-
-                                </div>
-                                <div class="text-image-tile__footer">
-                                    <div class="button button--link">
-                                        <i class="icon icon-arrow-right" aria-hidden="true"></i>
-                                        <span class="button__label"></span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </a>
-                        <a href="" class="text-image-tile is-inverted  has-only-icon-link">
-                            <div class="text-image-tile__image-wrapper">
-                                <picture class="text-image-tile__image">
-                                    <img data-src="./img/nut5.jpg"
-                                         src="./img/nut5.jpg"
-                                         class="blur-up lazyload" alt="">
-                                </picture>
-                            </div>
-                            <div class="text-image-tile__content-wrapper">
-                                <div class="text-image-tile__content">
-                                    <h2 class="text-image-tile__headline">Сульфат калію K</h2>
-                                    <div class="text-image-tile__body">
-                                        Ця високочиста мінеральна сіль переконує як регулятор кислотності, зміцнювач і
-                                        загусник. Сульфат калію також дуже підходить для збагачення калієм і як замінник
-                                        солі.
-                                    </div>
-
-                                </div>
-                                <div class="text-image-tile__footer">
-                                    <div class="button button--link">
-                                        <i class="icon icon-arrow-right" aria-hidden="true"></i>
-                                        <span class="button__label"></span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
+                <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoianVrYWNodSIsImEiOiJja25oZGticjkyazFjMnhtcjR5aDh0ZzFkIn0.WKYliOAefBFrYoPiTPzgaA';
+                    const geojson = {
+                        type: 'FeatureCollection',
+                        features: [
+                            {
+                                type: 'Feature',
+                                geometry: {
+                                    type: 'Point',
+                                    coordinates: [16.90418712883646, 52.36039991255058]
+                                },
+                                properties: {
+                                    title: 'Mapbox',
+                                    description: ''
+                                }
+                            }
+                        ]
+                    };
 
-                <div class="content-image-text">
-                    <div class="image">
-                        <picture>
-                            <img data-src="./img/foodim.png"
-                                 src="./img/foodim.png"
-                                 class="blur-up lazyload" alt="">
-                        </picture>
-                    </div>
-                    <div class="content-image-text__text">
-                        <p>Наші унікальні родовища забезпечують нас цінною природною сировиною: оскільки ми самостійно
-                            видобуваємо та продаємо свою продукцію, ми можемо надзвичайно гнучко реагувати на поточні
-                            вимоги та розвиток ринку.</p>
-                    </div>
-                </div>
+                    const map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/light-v11',
+                        center: [16.90418712883646, 52.36039991255058],
+                        zoom: 13
+                    });
 
-                <div class="content-separator">
-                    <div>
-                        <h2>Якісні та необхідні – наші солі для харчової промисловості</h2>
-                        <p>K+S мінеральні солі є унікальними, натуральними продуктами. Будучи важливим компонентом
-                            нашого раціону, вони відіграють вирішальну роль у виробництві та переробці їжі. Незалежно
-                            від того, чи використовуються вони як приправа, консервант або збагачувач, у м’ясних
-                            продуктах, хлібобулочних виробах, закусках чи сирах, у K+S є правильне рішення для
-                            будь-якого застосування. <br>
-                            Наша торгова марка NUTRIKS пропонує спеціальний асортимент продуктів для задоволення
-                            особливо високих вимог харчової промисловості та виробництва напоїв. Наші перевірені та
-                            перевірені продукти включають кам’яну сіль, вакуумну та морську сіль, а також хлорид калію
-                            та сульфат магнію природного походження.</p>
-                    </div>
-                </div>
+                    // add markers to map
+                    for (const feature of geojson.features) {
 
-                <div class="section-entry">
+                        const elmark = document.createElement('div');
+                        elmark.className = 'marker-1';
+
+                        // make a marker for each feature and add to the map
+                        new mapboxgl.Marker(elmark).setLngLat(feature.geometry.coordinates).addTo(map);  // Replace this line with code from step 5-2
+
+                        //code from step 6 will go here
+                    }
+
+                </script>
+
+                <div class="section-entry is-center-aligned">
                     <div class="overline">Контакт</div>
-                    <h2 class="section-entry__headline">Будь ласка, зв'яжіться з нами!</h2>
-                    <div class="section-entry__lead">
-                        <p>Вас цікавлять наші калійні, магнієві та соляні продукти? <br>
-                            Ми з нетерпінням чекаємо на ваш запит!</p>
+                    <h2 class="section-entry__headline">Ми раді вашим запитам щодо сільського господарства</h2>
+
+                </div>
+
+                <div class="contact-list  is-center-aligned">
+                    <div class="contact">
+                        <div class="contact__img-wrapper">
+                            <div class="contact__placeholder">
+                                <i class="icon icon-single-woman"></i>
+                            </div>
+                            <a href="" class="contact__mail-button button button--primary-light">
+                                <i class="icon icon-mail"></i>
+                                <span>Електронна пошта</span>
+                            </a>
+                        </div>
+                        <div class="contact__head">
+                            <div class="contact__name">Люцина Левицька</div>
+                            <div class="contact__position">Менеджер з маркетингу</div>
+                        </div>
+                        <div class="contact__body">
+                            <div class="contact__links">
+                                <div class="contact__links-wrapper">
+                                    <div class="contact__company">
+                                        <span>Регіональний радник</span>
+                                        <span>K+S Polska sp.</span>
+                                    </div>
+                                    <a href="" class="button button--icon-left contact__data">
+                                        <i class="icon icon-phone"></i>
+                                        <span class="button__label">+48 724 880 001</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="button button--icon-left contact__expand-button" data-hide="Менше"
+                                    data-show="Більше">
+                                <i class="icon icon-add"></i>
+                                <span class="button__label">Більше</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <div class="contact__img-wrapper">
+                            <div class="contact__placeholder">
+                                <img src="./img/conta1.jpg" data-src="./img/conta1.jpg" alt=""
+                                     class="contact__img blur-up lazyload">
+                            </div>
+
+                            <a href="" class="contact__mail-button button button--primary-light">
+                                <i class="icon icon-mail"></i>
+                                <span>Електронна пошта</span>
+                            </a>
+                        </div>
+                        <div class="contact__head">
+                            <div class="contact__name">Люцина Левицька</div>
+                            <div class="contact__position">Менеджер з маркетингу</div>
+                        </div>
+                        <div class="contact__body">
+                            <div class="contact__links">
+                                <div class="contact__links-wrapper">
+                                    <div class="contact__company">
+                                        <span>Регіональний радник</span>
+                                        <span>K+S Polska sp.</span>
+                                    </div>
+                                    <a href="" class="button button--icon-left contact__data">
+                                        <i class="icon icon-phone"></i>
+                                        <span class="button__label">+48 724 880 001</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="button button--icon-left contact__expand-button" data-hide="Менше"
+                                    data-show="Більше">
+                                <i class="icon icon-add"></i>
+                                <span class="button__label">Більше</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <div class="contact__img-wrapper">
+                            <div class="contact__placeholder">
+                                <i class="icon icon-single-woman"></i>
+                            </div>
+                            <a href="" class="contact__mail-button button button--primary-light">
+                                <i class="icon icon-mail"></i>
+                                <span>Електронна пошта</span>
+                            </a>
+                        </div>
+                        <div class="contact__head">
+                            <div class="contact__name">Люцина Левицька</div>
+                            <div class="contact__position">Менеджер з маркетингу</div>
+                        </div>
+                        <div class="contact__body">
+                            <div class="contact__links">
+                                <div class="contact__links-wrapper">
+                                    <div class="contact__company">
+                                        <span>Регіональний радник</span>
+                                        <span>K+S Polska sp.</span>
+                                    </div>
+                                    <a href="" class="button button--icon-left contact__data">
+                                        <i class="icon icon-phone"></i>
+                                        <span class="button__label">+48 724 880 001</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="button button--icon-left contact__expand-button" data-hide="Менше"
+                                    data-show="Більше">
+                                <i class="icon icon-add"></i>
+                                <span class="button__label">Більше</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -279,34 +306,6 @@
 
         </section>
 
-        <section class="overview-contacts">
-            <div class="section-comp-wrapper">
-                <div class="overview-contacts__wrap">
-                    <div class="overview-contacts__text">
-                        <p><strong>K+S UK & Eire Ltd.</strong>
-                            Unit 13, Watermark Way <br>Foxholes Business Park <br>Hertford SG13 7TZ <br>Велика Британія
-                        </p>
-                    </div>
-                    <div class="overview-contacts__contacts">
-                        <ul>
-                            <li>
-                                <p>телефон:</p>
-                                <a href="">+44 1992 517 400</a>
-                            </li>
-                            <li>
-                                <p>електронна адреса:</p>
-                                <a href="">info@ks-ukeire.co.uk</a>
-                            </li>
-                            <li>
-                                <p>веб-сайт:</p>
-                                <a href="">www.ks-ukeire.co.uk</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
     </main>
 </div>
 
