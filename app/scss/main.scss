@@ -808,7 +808,7 @@ picture img {
 }
 
 .blur-up.lazyloaded {
-  filter: blur(0);
+  filter: blur(0) !important;
 }
 
 .overview-teaser__wrapper {
@@ -3134,6 +3134,32 @@ figure {
 
 .hidden-menu {
   display: none;
+}
+
+.content-intro-top {
+  width: 100%;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #003a78;
+
+  h1 {
+    font-weight: 500;
+    color: #fff;
+  }
+}
+
+.privacy-text-part {
+  width: calc(100% - 4rem);
+  z-index: 2;
+  margin-top: -4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background: #fafafa;
+  position: relative;
+  padding: 4rem 3rem;
+  margin-bottom: 5rem;
 }
 
 @import "./details/header";
