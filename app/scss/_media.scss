@@ -704,6 +704,32 @@
 }
 
 @media only screen and (max-width: 991px) {
+  .hero-slide__video-large, .hero-slide__video-small {
+    height: 56.25vw;
+
+  }
+  video.hero-slide__video-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: red;
+  }
+  .hero {
+    .swiper-wrapper {
+      align-items: stretch;
+      .swiper-slide {
+        height: auto;
+        .hero-slide {
+          .hero-slide__inner {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
   .content-intro-top {
     width: calc(100% + 2rem);
     margin-left: -1rem;
