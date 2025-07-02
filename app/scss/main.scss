@@ -3895,6 +3895,56 @@ figure {
         line-height: 1.7em;
         background: rgba(255, 255, 255, 0);
         margin-top: 2rem;
+        h3 {
+            font-size: 1.953rem;
+            margin: 2rem 0;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 1.4rem;
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1.5rem;
+            max-width: 800px;
+
+            li {
+                padding-left: 22px;
+                position: relative;
+
+                &::before {
+                    width: 14px;
+                    height: 14px;
+                    background: #00A13A;
+                    border-radius: 50%;
+                    display: inline-block;
+                    content: '';
+                    position: absolute;
+                    top: 0.5rem;
+                    left: 0;
+                }
+            }
+
+
+        }
+        ol {
+            counter-reset: numOl;
+            padding-left: 0;
+            li {
+                counter-increment: numOl;
+                &::marker {
+                    display: none;
+                    content: none;
+                }
+                &::before {
+                    content: counter(numOl) '.';
+                    font-weight: 400;
+                }
+            }
+        }
         img {
             width: 100%;
             height: auto;

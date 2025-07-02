@@ -6694,6 +6694,60 @@ figure {
   background: rgba(255, 255, 255, 0);
   margin-top: 2rem;
 }
+.sec-intro-sub .image-text h3 {
+  font-size: 1.953rem;
+  margin: 2rem 0;
+}
+.sec-intro-sub .image-text ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1.4rem;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+  max-width: 800px;
+}
+.sec-intro-sub .image-text ul li {
+  padding-left: 22px;
+  position: relative;
+}
+.sec-intro-sub .image-text ul li::before {
+  width: 14px;
+  height: 14px;
+  background: #00A13A;
+  border-radius: 50%;
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+}
+.sec-intro-sub .image-text ol {
+  counter-reset: numOl;
+  padding-left: 0;
+}
+.sec-intro-sub .image-text ol li {
+  counter-increment: numOl;
+}
+.sec-intro-sub .image-text ol li::marker {
+  display: none;
+  content: none;
+}
+.sec-intro-sub .image-text ol li::before {
+  content: counter(numOl) ".";
+  font-weight: 400;
+}
 .sec-intro-sub .image-text img {
   width: 100%;
   height: auto;
